@@ -3059,15 +3059,6 @@
           "roleDefinitionId": "[variables('roleReader')]",
           "principalId": "[reference('resourcesDeployment').outputs.automationPrincipalId.value]",
           "principalType": "ServicePrincipal"
-        },
-        "tags": {
-          "CostCenter": "99700",
-          "Department": "Hosting Services",
-          "LegalSubEntity": "WBAITSIL Shared Resources",
-          "SubDivision": "WBA IT",
-          "EnvType": "Non-Production",
-          "Sensitivity": "Sensitive",
-          "SenType": "Not Applicable"
         }
       }
     ],
