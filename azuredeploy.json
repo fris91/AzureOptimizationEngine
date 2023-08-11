@@ -3028,7 +3028,7 @@
               "name": "[concat('sre-aoe-rg','-',uniqueString(parameters('contributorRoleAssignmentGuid')))]",
               "dependsOn": [
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
-              ],
+              ], 
               "properties": {
                 "roleDefinitionId": "[variables('roleContributor')]",
                 "principalId": "[reference(resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName')), '2019-06-01', 'Full').identity.principalId]",
