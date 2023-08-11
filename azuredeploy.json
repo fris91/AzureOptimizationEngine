@@ -7,11 +7,11 @@
     },
     "readerRoleAssignmentGuid": {
       "type": "string",
-      "defaultValue": "[guid(subscription().subscriptionId, sre-aoe-rg )]"
+      "defaultValue": "[guid(subscription().subscriptionId, 'sre-aoe-rg' )]"
     },
     "contributorRoleAssignmentGuid": {
       "type": "string",
-      "defaultValue": "[guid(sre-aoe-rg)]"
+      "defaultValue": "[guid('sre-aoe-rg')]"
     },
     "projectLocation": {
       "type": "String"
