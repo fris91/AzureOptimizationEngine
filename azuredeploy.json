@@ -3029,15 +3029,6 @@
                   "roleDefinitionId": "[variables('roleContributor')]",
                   "principalId": "[reference(resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName')), '2019-06-01', 'Full').identity.principalId]",
                   "principalType": "ServicePrincipal"
-                },
-                "tags": {
-                  "CostCenter": "99700",
-                  "Department": "Hosting Services",
-                  "LegalSubEntity": "WBAITSIL Shared Resources",
-                  "SubDivision": "WBA IT",
-                  "EnvType": "Non-Production",
-                  "Sensitivity": "Sensitive",
-                  "SenType": "Not Applicable"
                 }
               }
             ],
