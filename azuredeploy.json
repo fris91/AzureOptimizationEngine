@@ -84,8 +84,6 @@
   },
   "functions": [],
   "variables": {
-    "contributorAssignmentName": "[toLower(concat('ContributorAssignment','-', uniqueString(resourceGroup().id)))]",
-    "readerAssignmentName": "[toLower(concat('ReaderAssignment','-', uniqueString(resourceGroup().id)))]",
     "roleReader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
   },
   "resources": [
@@ -703,6 +701,8 @@
             }
           },
           "variables": {
+            "contributorAssignmentName": "[toLower(concat('ContributorAssignment','-', uniqueString(resourceGroup().id)))]",
+            "readerAssignmentName": "[toLower(concat('ReaderAssignment','-', uniqueString(resourceGroup().id)))]",
             "advisorExportsRunbookName": "Export-AdvisorRecommendationsToBlobStorage",
             "argVmExportsRunbookName": "Export-ARGVirtualMachinesPropertiesToBlobStorage",
             "argVmssExportsRunbookName": "Export-ARGVMSSPropertiesToBlobStorage",
