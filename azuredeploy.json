@@ -7,11 +7,11 @@
     },
     "readerRoleAssignmentGuid": {
       "type": "string",
-      "defaultValue": "[guid(subscription().subscriptionId, parameters('rgName'))]"
+      "defaultValue": "[guid(subscription().subscriptionId, sre-aoe-rg )]"
     },
     "contributorRoleAssignmentGuid": {
       "type": "string",
-      "defaultValue": "[guid(parameters('rgName'))]"
+      "defaultValue": "[guid(sre-aoe-rg)]"
     },
     "projectLocation": {
       "type": "String"
@@ -3027,8 +3027,7 @@
               "apiVersion": "2018-09-01-preview",
               "name": "[parameters('contributorRoleAssignmentGuid')]",
               "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
-                "[resourceId('Microsoft.Sql/servers', parameters('sqlServerName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
               ],
               "properties": {
                 "roleDefinitionId": "[variables('roleContributor')]",
