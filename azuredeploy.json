@@ -3026,7 +3026,7 @@
             {
               "type": "Microsoft.Authorization/roleAssignments",
               "apiVersion": "2018-09-01-preview",
-              "name": "[concat('sre-aoe-rg','contributor-',uniqueString(parameters('contributorRoleAssignmentGuid')))]",
+              "name": "[guid(concat('sre-aoe-rg','contributor-',uniqueString(parameters('contributorRoleAssignmentGuid'))))]",
               "dependsOn": [
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
               ], 
@@ -3049,7 +3049,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2018-09-01-preview",
-      "name": "[concat('sre-aoe-rg','reader-',uniqueString(parameters('readerRoleAssignmentGuid')))]",
+      "name": "[guid(concat('sre-aoe-rg','reader-',uniqueString(parameters('readerRoleAssignmentGuid'))))]",
       "dependsOn": [
         "resourcesDeployment"
       ],
