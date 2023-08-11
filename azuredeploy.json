@@ -2021,9 +2021,14 @@
                   "allowBlobPublicAccess": false,
                   "networkAcls": {
                     "bypass": "AzureServices",
-                    "virtualNetworkRules": [],
+                    "virtualNetworkRules": [
+                      {
+                        "id": "/subscriptions/7ab4247c-12e0-4250-ab27-839a7e31d03d/resourceGroups/sre-monitoring-workbook/providers/Microsoft.Network/virtualNetworks/sre-monitoring-instance-vnet/subnets/default",
+                        "id": "/subscriptions/7ab4247c-12e0-4250-ab27-839a7e31d03d/resourceGroups/sre-monitoring-workbook/providers/Microsoft.Network/virtualNetworks/sre-monitoring-instance-vnet/subnets/AzureBastionSubnet"
+                        }
+                    ],
                     "ipRules": [],
-                    "defaultAction": "Allow"
+                    "defaultAction": "Deny"
                   },
                   "supportsHttpsTrafficOnly": true,
                   "encryption": {
