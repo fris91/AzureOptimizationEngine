@@ -701,8 +701,6 @@
             }
           },
           "variables": {
-            "contributorAssignmentName": "[toLower(concat('ContributorAssignment','-', uniqueString(resourceGroup().id)))]",
-            "readerAssignmentName": "[toLower(concat('ReaderAssignment','-', uniqueString(resourceGroup().id)))]",
             "advisorExportsRunbookName": "Export-AdvisorRecommendationsToBlobStorage",
             "argVmExportsRunbookName": "Export-ARGVirtualMachinesPropertiesToBlobStorage",
             "argVmssExportsRunbookName": "Export-ARGVMSSPropertiesToBlobStorage",
@@ -3032,7 +3030,7 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
               ],
               "properties": {
-                "roleDefinitionId": "[variables('roleContributor')]",
+                "roleDefinitionId": "[uniqueString(parameters('contributorRoleAssignmentGuid'))]",
                 "principalId": "[reference(resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName')), '2019-06-01', 'Full').identity.principalId]",
                 "principalType": "ServicePrincipal"
               }
@@ -3050,7 +3048,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2018-09-01-preview",
-      "name": "[variables('readerAssignmentName')]",
+      "name": "[uniqueString(parameters('readerRoleAssignmentGuid'))]",
       "dependsOn": [
         "resourcesDeployment"
       ],
