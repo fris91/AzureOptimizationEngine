@@ -84,6 +84,8 @@
   },
   "functions": [],
   "variables": {
+    "contributorAssignmentName": "[concat('ContributorAssignment-', uniqueString(resourceGroup().id))]",
+    "readerAssignmentName": "[concat('ReaderAssignment-', uniqueString(resourceGroup().id))]",
     "roleReader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
   },
   "resources": [
@@ -3025,7 +3027,7 @@
             {
               "type": "Microsoft.Authorization/roleAssignments",
               "apiVersion": "2018-09-01-preview",
-              "name": "[concat('ContributorAssignment-', uniqueString(resourceGroup().id))]",
+              "name": "[variables('contributorAssignmentName')]",
               "dependsOn": [
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
               ],
@@ -3048,7 +3050,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2018-09-01-preview",
-      "name": "[concat('ReaderAssignment-', uniqueString(resourceGroup().id))]",
+      "name": "[variables('readerAssignmentName')]",
       "dependsOn": [
         "resourcesDeployment"
       ],
