@@ -80,7 +80,7 @@ if ([string]::IsNullOrEmpty($TemplateUri)) {
 $isTemplateAvailable = $false
 
 try {
-    Invoke-WebRequest -Uri $TemplateUri | Out-Null
+    Invoke-WebRequest -Uri $TemplateUri -UseBasicParsing | Out-Null
     $isTemplateAvailable = $true
 }
 catch {
@@ -512,7 +512,7 @@ if ("Y", "y" -contains $continueInput) {
     
         Write-Host "Deploying Azure Optimization Engine resources..." -ForegroundColor Green
         if ([string]::IsNullOrEmpty($ArtifactsSasToken)) {
-            $deployment = New-AzDeployment -TemplateUri $TemplateUri -Location $targetLocation -rgName $resourceGroupName -Name $deploymentName `
+            $deployment = New-AzDeployment -TemplateUri $TemplateUri -Location $targetLocation -rgName "sre-aoe-rg" -Name $deploymentName `
                 -projectLocation $targetlocation -logAnalyticsReuse $logAnalyticsReuse -baseTime $baseTime `
                 -logAnalyticsWorkspaceName $laWorkspaceName -logAnalyticsWorkspaceRG $laWorkspaceResourceGroup `
                 -storageAccountName $storageAccountName -automationAccountName $automationAccountName `

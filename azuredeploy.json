@@ -3024,7 +3024,6 @@
                 "name": "[parameters('contributorRoleAssignmentGuid')]",
                 "dependsOn": [
                   "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
-                  "[resourceId('Microsoft.Sql/servers', parameters('sqlServerName'))]"
                 ],
                 "properties": {
                   "roleDefinitionId": "[variables('roleContributor')]",
