@@ -3025,7 +3025,7 @@
             {
               "type": "Microsoft.Authorization/roleAssignments",
               "apiVersion": "2018-09-01-preview",
-              "name": "[concat('sre-aoe-rg','-',uniqueString(parameters('contributorRoleAssignmentGuid'))]",
+              "name": "[concat('sre-aoe-rg','-',uniqueString(parameters('contributorRoleAssignmentGuid')))]",
               "dependsOn": [
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
               ],
