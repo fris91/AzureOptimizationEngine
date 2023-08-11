@@ -3025,12 +3025,12 @@
             {
               "type": "Microsoft.Authorization/roleAssignments",
               "apiVersion": "2018-09-01-preview",
-              "name": "[variables('contributorAssignmentName')]",
+              "name": "[uniqueString(parameters('contributorRoleAssignmentGuid'))]",
               "dependsOn": [
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
               ],
               "properties": {
-                "roleDefinitionId": "[uniqueString(parameters('contributorRoleAssignmentGuid'))]",
+                "roleDefinitionId": "[variables('roleContributor')]",
                 "principalId": "[reference(resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName')), '2019-06-01', 'Full').identity.principalId]",
                 "principalType": "ServicePrincipal"
               }
