@@ -84,9 +84,6 @@
   },
   "functions": [],
   "variables": {
-    "roleReader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]",
-    "roleContributor": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]"
-
   },
   "resources": [
     {
@@ -1983,7 +1980,10 @@
                 "description": "The lookback period (in days) for analyzing Storage Account growth",
                 "value": 30
               }
-            ]
+            ],
+            "roleContributor": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
+            "roleReader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
+
           },
           "resources": [
             {
@@ -3049,7 +3049,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2018-09-01-preview",
-      "name": "[concat('sre-aoe-rg','-',uniqueString(parameters('readerRoleAssignmentGuid')))]",
+      "name": "[concat('sre-aoe-rg','reader-',uniqueString(parameters('readerRoleAssignmentGuid')))]",
       "dependsOn": [
         "resourcesDeployment"
       ],
