@@ -868,13 +868,13 @@ if ("Y", "y" -contains $continueInput) {
     #region Deployment date Automation variable
     Write-Host "Checking Azure Automation variable referring to the initial Azure Optimization Engine deployment date..." -ForegroundColor Green
     $deploymentDateVariableName = "AzureOptimization_DeploymentDate"
-    $deploymentDateVariable = Get-AzAutomationVariable -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -Name $deploymentDateVariableName -ErrorAction SilentlyContinue
+    $deploymentDateVariable = Get-AzAutomationVariable -ResourceGroupName "sre-aoe-rg" -AutomationAccountName $automationAccountName -Name $deploymentDateVariableName -ErrorAction SilentlyContinue
     
     if ($null -eq $deploymentDateVariable) {
         $deploymentDate = (Get-Date).ToUniversalTime().ToString("yyyy-MM-dd")
         Write-Host "Setting initial deployment date ($deploymentDate)..." -ForegroundColor Green
         New-AzAutomationVariable -Name $deploymentDateVariableName -Description "The date of the initial engine deployment" `
-            -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -Value $deploymentDate -Encrypted $false
+            -ResourceGroupName "sre-aoe-rg" -AutomationAccountName $automationAccountName -Value $deploymentDate -Encrypted $false
     }
     #endregion
 
@@ -885,7 +885,7 @@ if ("Y", "y" -contains $continueInput) {
 
         Write-Host "Opening SQL Server firewall temporarily to your public IP ($myPublicIp)..." -ForegroundColor Green
         $tempFirewallRuleName = "InitialDeployment"            
-        New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $sqlServerName -FirewallRuleName $tempFirewallRuleName -StartIpAddress $myPublicIp -EndIpAddress $myPublicIp -ErrorAction SilentlyContinue    
+        New-AzSqlServerFirewallRule -ResourceGroupName "sre-aoe-rg" -ServerName $sqlServerName -FirewallRuleName $tempFirewallRuleName -StartIpAddress $myPublicIp -EndIpAddress $myPublicIp -ErrorAction SilentlyContinue    
     }
     #endregion
     
