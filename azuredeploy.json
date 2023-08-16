@@ -84,6 +84,8 @@
   },
   "functions": [],
   "variables": {
+    "roleReader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
+
   },
   "resources": [
     {
